@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
-import { IAppState, INITIAL_STATE, rootReducer } from './store'; 
+import { IAppState, APP_INITIAL_STATE, rootReducer } from './store'; 
+
+import { CounterModule } from './counter/counter.module';
 
 import { AppComponent } from './app.component';
 
@@ -16,17 +18,19 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgReduxModule
+    NgReduxModule,
+    CounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
 
-  constructor(ngRedux: NgRedux<IAppState>,
+  // This is type any because of some ts bug... #annoyed.
+  constructor(ngRedux: NgRedux<any>,
     devtools: DevToolsExtension) { 
       var enhancer = isDevMode() ? [devtools.enhancer()] : [];
 
-      ngRedux.configureStore(rootReducer, INITIAL_STATE, [], enhancer);
+      ngRedux.configureStore(rootReducer, APP_INITIAL_STATE, [], enhancer);
   }
 }

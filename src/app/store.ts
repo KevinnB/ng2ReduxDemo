@@ -1,19 +1,15 @@
 import { tassign } from 'tassign';
-import { INCREMENT } from './actions';
-
+import { combineReducers } from 'redux';
+import { ICounterState, counterReducer, COUNTER_INITIAL_STATE } from './counter/store';
 
 export interface IAppState {
-    counter: number;
+    counter: ICounterState;
 }
 
-export const INITIAL_STATE: IAppState = {
-    counter: 0,
+export const APP_INITIAL_STATE: IAppState = {
+    counter: COUNTER_INITIAL_STATE
 }
 
-export function rootReducer(state: IAppState, action): IAppState {
-    switch (action.type) {
-        case INCREMENT: 
-            return tassign(state, { counter: state.counter + 1});
-    }
-    return state;
-}
+export const rootReducer = combineReducers({
+  counter: counterReducer
+});
