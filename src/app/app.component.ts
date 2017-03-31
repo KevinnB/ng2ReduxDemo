@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 
 import { NgRedux, select } from 'ng2-redux'; 
 import { IAppState } from './store';
-import { INCREMENT } from './counter/actions';
+import { INCREMENT, DECREMENT, RESET } from './counter/actions';
 
 @Component({
   selector: 'ngr-root',
@@ -12,10 +12,19 @@ import { INCREMENT } from './counter/actions';
 export class AppComponent {
   title = 'ngr works!';
   @select((s: IAppState) => s.counter.count) count;
+  @select((s: IAppState) => s.counter.lastUpdate) lastUpdated;
 
   constructor(private ngRedux: NgRedux<IAppState>) { }
 
   increment() {
-    this.ngRedux.dispatch({ type: 'INCREMENT' });
+    this.ngRedux.dispatch({ type: INCREMENT });
+  }
+
+  decrement() {
+    this.ngRedux.dispatch({ type: DECREMENT });
+  }
+
+  reset() {
+    this.ngRedux.dispatch({ type: RESET });
   }
 }

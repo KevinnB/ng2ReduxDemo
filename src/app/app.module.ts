@@ -1,3 +1,4 @@
+import { UsersModule } from './users/users.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +20,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     NgReduxModule,
-    CounterModule
+    CounterModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
