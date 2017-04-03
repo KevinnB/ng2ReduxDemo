@@ -5,6 +5,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from '../../store';
 import { FETCH_USERS_FETCHING, FETCH_USERS_ERROR, FETCH_USERS_SUCCESS } from '../actions';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'ngr-user-list',
@@ -12,7 +13,7 @@ import { FETCH_USERS_FETCHING, FETCH_USERS_ERROR, FETCH_USERS_SUCCESS } from '..
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
+  private subscription: Subscription;
   @select((s: IAppState) => s.users.users) users;
   @select((s: IAppState) => s.users.loading) loading;
   @select((s: IAppState) => s.users.error) error;
