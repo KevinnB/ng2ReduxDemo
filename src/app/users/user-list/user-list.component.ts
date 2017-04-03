@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs/Rx';
 import { UserService } from '../user-service.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from '../../store';
@@ -14,6 +14,7 @@ import { Observable } from "rxjs/Observable";
 })
 export class UserListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
+  @Input() initialize: boolean;
   @select((s: IAppState) => s.users.users) users;
   @select((s: IAppState) => s.users.loading) loading;
   @select((s: IAppState) => s.users.error) error;
@@ -22,6 +23,12 @@ export class UserListComponent implements OnInit, OnDestroy {
     private pUser: UserService) { }
 
   ngOnInit() {
+    if (this.initialize !== false) {
+      this.loadData();
+    }
+  }
+
+  loadData() {
     this.ngRedux.dispatch({ type: FETCH_USERS_FETCHING });
     this.subscription = this.pUser.getUsers()
       .subscribe((data) => {
@@ -32,12 +39,18 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   reload() {
-    this.subscription.unsubscribe();
-    this.ngOnInit();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+
+    this.loadData();
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+
   }
 
 }

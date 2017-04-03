@@ -2,8 +2,7 @@ import { IUserState, USER_INITIAL_STATE, userReducer } from './users/store';
 import { tassign } from 'tassign';
 import { combineReducers } from 'redux';
 import { ICounterState, counterReducer, COUNTER_INITIAL_STATE } from './counter/store';
-
-import { authReducer, IAuthState, AUTH_INITIAL_STATE } from "app/auth/store";
+import { authReducer, IAuthState, AUTH_INITIAL_STATE } from "./utility/auth/store";
 
 export interface IAppState {
     counter: ICounterState;

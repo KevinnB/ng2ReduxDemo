@@ -1,0 +1,35 @@
+.loading-container{
+    position:relative;
+
+
+    .loading-backdrop {
+        background-color:#fff;
+        opacity:.8;
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        z-index: 100;
+    }
+
+    .loading-message{
+        color: #0275d8;
+        background-color:#fff;
+        width:100px;
+        margin:auto;
+        position:absolute;
+        top:30px;
+        left:0;
+        right:0;
+        z-index: 110;
+    }
+
+    &:before,
+    &:after {
+        display:table;
+        float:none;
+        clear:both;
+        content: " ";
+    }
+}

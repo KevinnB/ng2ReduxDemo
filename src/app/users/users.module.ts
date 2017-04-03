@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 
 import { usersRoutes } from "./users.router";
 import { UserListComponent } from './user-list/user-list.component';
+import { UtilityModule } from "../utility/utility.module";
 
 @NgModule({
   imports: [
     RouterModule.forRoot(usersRoutes),
     CommonModule,
-    HttpModule
+    HttpModule,
+    UtilityModule
   ],
   declarations: [
     UserListComponent

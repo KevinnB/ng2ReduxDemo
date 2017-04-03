@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { errorRoutes } from "./error.router";
+import { UtilityModule } from "../utility/utility.module";
+
 
 @NgModule({
   imports: [
     RouterModule.forRoot(errorRoutes),
-    CommonModule
+    CommonModule,
+    UtilityModule
   ],
   declarations: [
     PageNotFoundComponent

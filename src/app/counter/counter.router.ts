@@ -1,18 +1,18 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { UserListComponent } from "./user-list/user-list.component";
+import { CounterComponent } from "./counter/counter.component";
 
-export const usersRoutes: Routes = [
+export const counterRoutes: Routes = [
     {
-        path: 'users',
+        path: 'counter',
         children: [
             {
-                path: 'list',
-                component: UserListComponent
+                path: 'counter',
+                component: CounterComponent
             },
             {
                 path: '',
-                redirectTo: '/users/list',
+                redirectTo: '/counter/counter',
                 pathMatch: 'full'
             },
             {

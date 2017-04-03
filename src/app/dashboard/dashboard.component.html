@@ -1,3 +1,24 @@
-<p>
-  dashboard works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <div class="card card-inverse" style="background-color: #333; border-color: #333;"> 
+      <div class="card-block">
+        <h3 class="card-title">Counter</h3>
+        <p class="card-text">
+          <ngr-counter></ngr-counter>
+        </p>
+        <a class="btn btn-primary" routerLink="/counter">More</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+     <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">User List</h3>
+        <p class="card-text">
+          <ngr-user-list></ngr-user-list>
+        </p>
+        <a class="btn btn-primary" routerLink="/users/list">More</a>
+      </div>
+    </div>
+  </div>
+</div>

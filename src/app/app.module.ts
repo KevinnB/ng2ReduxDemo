@@ -1,6 +1,7 @@
 import { UsersModule } from './users/users.module';
 import { CounterModule } from './counter/counter.module';
 import { ErrorModule } from './error/error.module';
+import { UtilityModule } from './utility/utility.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
@@ -16,8 +17,7 @@ import { IAppState, APP_INITIAL_STATE, rootReducer } from './store';
 import { BsDropdownModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
-import { Auth } from "./auth/auth.service";
-import { AUTH_PROVIDERS } from 'angular2-jwt';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -36,9 +36,9 @@ import { ProfileComponent } from './profile/profile.component';
     NgReduxModule,
     CounterModule,
     UsersModule,
-    ErrorModule
+    ErrorModule,
+    UtilityModule
   ],
-  providers: [Auth, AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule {

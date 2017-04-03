@@ -1,12 +1,7 @@
-<h2>
-  User List
-</h2>
-
-<p>Loading: {{ loading | async }}</p>
 <p>Error: {{ error | async }}</p>
-
-<button (click)="reload()" class="btn btn-default">Reload</button>
-
-<div *ngFor="let user of users | async">
-  <pre>{{ user | json }}</pre>
-</div>
+<ngr-loading-indicator [loading]="(loading | async)">
+  <button (click)="reload()" class="btn btn-default">Reload</button>
+  <div *ngFor="let user of users | async">
+    <pre>{{ user | json }}</pre>
+  </div>
+</ngr-loading-indicator>

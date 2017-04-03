@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 
 import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from './store';
-import { Auth } from "./auth/auth.service";
+import { Auth } from "./utility/auth/auth.service";
 
 @Component({
   selector: 'ngr-root',
