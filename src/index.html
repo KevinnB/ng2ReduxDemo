@@ -8,10 +8,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+    .pre-loader {
+      width: 100px;
+      margin: 50px auto;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+  </style>
 </head>
 
 <body>
-  <ngr-root>Loading...</ngr-root>
+  <ngr-root>
+    <div class="pre-loader">
+      Loading...
+    </div>
+  </ngr-root>
   <script src="https://cdn.auth0.com/js/lock/10.14/lock.min.js"></script>
 </body>
 
