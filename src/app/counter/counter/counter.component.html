@@ -1,0 +1,9 @@
+<h1>
+  Counter
+</h1>
+
+<p>Counter: {{ count | async }}</p>
+<p>LastUpdated: {{ (lastUpdated | async) | date:'mediumTime' }}</p>
+<button (click)="increment()" class="btn btn-default">Increment</button>
+<button (click)="decrement()" class="btn btn-default">Decrement</button>
+<button (click)="reset()" class="btn btn-default">Reset</button>

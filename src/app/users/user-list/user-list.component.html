@@ -1,11 +1,11 @@
-<p>
+<h2>
   User List
-</p>
+</h2>
 
 <p>Loading: {{ loading | async }}</p>
 <p>Error: {{ error | async }}</p>
 
-<button (click)="reload()">Reload</button>
+<button (click)="reload()" class="btn btn-default">Reload</button>
 
 <div *ngFor="let user of users | async">
   <pre>{{ user | json }}</pre>
