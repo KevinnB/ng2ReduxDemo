@@ -1,28 +1,39 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+<nav class="navbar navbar-inverse navbar-toggleable-md bg-inverse fixed-top">
     <button class="navbar-toggler navbar-toggler-right" type="button" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-    <a class="navbar-brand" href="#">Admin</a>
+    </button>
+    <a class="navbar-brand" routerLink="/">Admin</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/users">Users</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/counter">Counter</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-primary my-2 my-sm-0" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-            <button class="btn btn-outline-primary my-2 my-sm-0" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
-        </form>
+        <button class="btn btn-outline-primary my-2 my-sm-0" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+        <div dropdown (isOpenChange)="toggled($event)" placement="bottom right">
+            <a href dropdownToggle (click)="false" *ngIf="auth.authenticated()" class="navbar-text username">
+                <img [src]="(userProfile | async)?.picture" alt="i" class="profile-picture">
+                {{ (userProfile | async)?.name }}
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" routerLink="/profile">Profile</a>
+                <a class="dropdown-item" href="javascript:void(0);">Another action</a>
+                <a class="dropdown-item" href="javascript:void(0);">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a href="javascript:void(0);" class="dropdown-item" (click)="auth.logout()">Log Out</a>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="container fixed-navbar-top">
-
-    {{ userProfile | json }}
-
+    <router-outlet></router-outlet>
     <div class="row">
         <div class="col-6">
             <ngr-counter></ngr-counter>

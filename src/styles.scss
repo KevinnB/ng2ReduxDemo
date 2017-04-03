@@ -3,3 +3,18 @@
 .fixed-navbar-top{
     padding-top: 5rem;
 }
+
+
+.navbar {
+    .username {
+        text-decoration: none;
+    }
+    .profile-picture{
+        height:30px;
+        width:30px;
+        border-radius: 50%;
+        margin-right: 8px;
+            margin-top: -5px;
+
+    }
+}

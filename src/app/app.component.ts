@@ -10,12 +10,7 @@ import { Auth } from "./auth/auth.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  userProfile = null;
+  @select((s: IAppState) => s.auth.localProfile) userProfile;
 
-  constructor(private ngRedux: NgRedux<IAppState>,
-    private auth: Auth) {
-      console.log(auth);
-    this.userProfile = auth.userProfile;
-  }
-
+  constructor(private ngRedux: NgRedux<IAppState>, private auth: Auth) { }
 }
