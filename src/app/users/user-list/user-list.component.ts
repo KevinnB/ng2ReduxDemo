@@ -15,6 +15,7 @@ import { Observable } from "rxjs/Observable";
 export class UserListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   @Input() initialize: boolean;
+  @Input() size: string = 'lg';
   @select((s: IAppState) => s.users.users) users;
   @select((s: IAppState) => s.users.loading) loading;
   @select((s: IAppState) => s.users.error) error;

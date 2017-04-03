@@ -1,0 +1,26 @@
+<div *ngIf="size==='lg'; else sm">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
+      <p class="card-text">
+        <small class="text-muted">{{ user.email }}</small>&nbsp;&middot;
+        <small class="text-muted">{{ user.phone }}</small>
+      </p>
+      <div class="text-right">
+        <a [routerLink]="['/users', 'details', user.id]" class="btn btn-primary">More</a>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #sm>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
+      <div class="text-right">
+        <a [routerLink]="['/users', 'details', user.id]" class="btn btn-primary">More</a>
+      </div>
+    </div>
+  </div>
+</ng-template>

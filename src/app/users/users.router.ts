@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { UserListComponent } from "./user-list/user-list.component";
+import { UserDetailsComponent } from "./user-details/user-details.component";
 import { authGuard } from "../utility/auth/authGuard.guard";
 
 export const usersRoutes: Routes = [
@@ -12,6 +13,10 @@ export const usersRoutes: Routes = [
             {
                 path: 'list',
                 component: UserListComponent
+            },
+            {
+                path: 'details/:id',
+                component: UserDetailsComponent
             },
             {
                 path: '',

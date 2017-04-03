@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from "../utility/auth/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'ngr-login',
@@ -8,9 +9,14 @@ import { Auth } from "../utility/auth/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: Auth, ) { }
+  constructor(private auth: Auth,
+    private router: Router) { }
 
   ngOnInit() {
+    console.log(this.auth.authenticated());
+    if (this.auth.authenticated()) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   login() {
